@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfAddressDTO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AddressDTO ClientVersion="8.40">
+    <XTeaKey>7884044</XTeaKey>
+    <RSAKey>5944848</RSAKey>
+    <DatPointer>7884076</DatPointer>
+    <FrameRateBegin>7900852</FrameRateBegin>
+    <MultiClient>5265733</MultiClient>
+    <SafeMode>7885108</SafeMode>
+    <LoginSelectedChar>7897888</LoginSelectedChar>
+    <LoginCharList>7897892</LoginCharList>
+    <LoginServerStart>7863368</LoginServerStart>
+    <InGame>7897968</InGame>
+    <Exp>6470948</Exp>
+    <RedSquare>6470908</RedSquare>
+    <ContainerBegin>6521184</ContainerBegin>
+    <HeadInventory>6521064</HeadInventory>
+    <VipBegin>6462032</VipBegin>
+    <MapPointer>6550888</MapPointer>
+    <NameSpy1>5161337</NameSpy1>
+    <NameSpy2>5161347</NameSpy2>
+    <LevelSpy1>5169194</LevelSpy1>
+    <LevelSpy2>5169455</LevelSpy2>
+    <LevelSpy3>5169584</LevelSpy3>
+    <LevelSpyPtr>6518440</LevelSpyPtr>
+    <FullLight>5130540</FullLight>
+    <FullLightNop>5130537</FullLightNop>
+    <PrintName>5173601</PrintName>
+    <PrintFPS>4556360</PrintFPS>
+    <howFPS>6462004</howFPS>
+    <PrintTextFunc>4910080</PrintTextFunc>
+    <NopFPS>4556164</NopFPS>
+  </AddressDTO>
+</ArrayOfAddressDTO>

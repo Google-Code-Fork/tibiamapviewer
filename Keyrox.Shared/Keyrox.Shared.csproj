@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E60D87B4-FF44-4411-8E31-27B22BB35AA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Keyrox.Shared</RootNamespace>
+    <AssemblyName>Keyrox.Shared</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\Callback.cs" />
+    <Compile Include="Controls\MethodCall.cs" />
+    <Compile Include="Controls\Sound.cs" />
+    <Compile Include="Controls\TemporalThread.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TemporalTimer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Converters\HexConverter.cs" />
+    <Compile Include="Criptography\Adler32.cs" />
+    <Compile Include="Criptography\Contracts\ICriptoProvider.cs" />
+    <Compile Include="Criptography\RSA.cs" />
+    <Compile Include="Criptography\XTeaCheckSum.cs" />
+    <Compile Include="Extensions\Bytes.cs" />
+    <Compile Include="Extensions\Collections.cs" />
+    <Compile Include="Extensions\Cryptographer.cs" />
+    <Compile Include="Extensions\Culture.cs" />
+    <Compile Include="Extensions\DateTime.cs" />
+    <Compile Include="Extensions\Enumerators.cs" />
+    <Compile Include="Extensions\Files.cs" />
+    <Compile Include="Extensions\Hexadecimal.cs" />
+    <Compile Include="Extensions\WinProcess.cs" />
+    <Compile Include="Memory\Hook.cs" />
+    <Compile Include="Extensions\Objects.cs" />
+    <Compile Include="Memory\MemoryProvider.cs" />
+    <Compile Include="Memory\Reader.cs" />
+    <Compile Include="Memory\Writer.cs" />
+    <Compile Include="Messaging\Contracts\IMessage.cs" />
+    <Compile Include="Messaging\Message.cs" />
+    <Compile Include="Messaging\MessageProvider.cs" />
+    <Compile Include="Messaging\MessageType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Extensions\WindowsAPI.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
