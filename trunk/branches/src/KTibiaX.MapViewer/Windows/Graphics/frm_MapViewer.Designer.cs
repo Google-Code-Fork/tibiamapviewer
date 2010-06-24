@@ -52,6 +52,7 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.btnDeleteMark = new DevExpress.XtraBars.BarButtonItem();
             this.btnAddLabelMenu = new DevExpress.XtraBars.BarButtonItem();
             this.btnAddMarkMenu = new DevExpress.XtraBars.BarButtonItem();
+            this.btnGoTo = new DevExpress.XtraBars.BarButtonItem();
             this.imgLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.rpOptions = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -59,6 +60,7 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.clientPanel = new DevExpress.XtraEditors.PanelControl();
@@ -90,6 +92,15 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.mapContextMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.labelContextMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.markContextMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.txtGoY = new DevExpress.XtraEditors.TextEdit();
+            this.btnGo = new DevExpress.XtraEditors.SimpleButton();
+            this.txtGoX = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
@@ -125,12 +136,16 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             ((System.ComponentModel.ISupportInitialize)(this.mapContextMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelContextMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.markContextMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
+            this.dockPanel1.SuspendLayout();
+            this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGoY.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGoX.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
             // 
-            this.ribbon.ApplicationButtonKeyTip = "";
-            this.ribbon.ApplicationIcon = null;
+            this.ribbon.ApplicationIcon = global::KTibiaX.MapViewer.Properties.Resources.MTG_Green_32;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.zoomEditItem,
             this.btnMapStatus,
@@ -156,10 +171,11 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.btnEditMark,
             this.btnDeleteMark,
             this.btnAddLabelMenu,
-            this.btnAddMarkMenu});
+            this.btnAddMarkMenu,
+            this.btnGoTo});
             this.ribbon.LargeImages = this.imgLarge;
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 28;
+            this.ribbon.MaxItemId = 29;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpOptions});
@@ -254,27 +270,30 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             // 
             // btnChangePath
             // 
-            this.btnChangePath.Caption = "Change Path";
+            this.btnChangePath.Caption = "Maps Path";
             this.btnChangePath.Id = 12;
             this.btnChangePath.LargeImageIndex = 0;
+            this.btnChangePath.LargeWidth = 60;
             this.btnChangePath.Name = "btnChangePath";
             this.btnChangePath.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChangePath_ItemClick);
             // 
             // btnUp
             // 
-            this.btnUp.Caption = "Go UP Floor";
+            this.btnUp.Caption = "UP Floor";
             this.btnUp.Description = "Switches to the UP Floor.";
             this.btnUp.Id = 13;
             this.btnUp.LargeImageIndex = 5;
+            this.btnUp.LargeWidth = 60;
             this.btnUp.Name = "btnUp";
             this.btnUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUp_ItemClick);
             // 
             // btnDown
             // 
-            this.btnDown.Caption = "Go Down Floor";
+            this.btnDown.Caption = "Down Floor";
             this.btnDown.Description = "Switches to the Down Floor.";
             this.btnDown.Id = 14;
             this.btnDown.LargeImageIndex = 2;
+            this.btnDown.LargeWidth = 60;
             this.btnDown.Name = "btnDown";
             this.btnDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDown_ItemClick);
             // 
@@ -284,6 +303,7 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.btnZoomM.Description = "Increases the current Zoom rate.";
             this.btnZoomM.Id = 15;
             this.btnZoomM.LargeImageIndex = 3;
+            this.btnZoomM.LargeWidth = 60;
             this.btnZoomM.Name = "btnZoomM";
             this.btnZoomM.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnZoomM_ItemClick);
             // 
@@ -293,40 +313,45 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.btnZoomN.Description = "Decreases the current Zoom rate.";
             this.btnZoomN.Id = 16;
             this.btnZoomN.LargeImageIndex = 4;
+            this.btnZoomN.LargeWidth = 60;
             this.btnZoomN.Name = "btnZoomN";
             this.btnZoomN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnZoomN_ItemClick);
             // 
             // btnRebuild
             // 
-            this.btnRebuild.Caption = "Rebuild Maps";
+            this.btnRebuild.Caption = "Refresh";
             this.btnRebuild.Id = 17;
             this.btnRebuild.LargeImageIndex = 1;
+            this.btnRebuild.LargeWidth = 60;
             this.btnRebuild.Name = "btnRebuild";
             this.btnRebuild.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRebuild_ItemClick);
             // 
             // btnCenter
             // 
-            this.btnCenter.Caption = "Center Map";
+            this.btnCenter.Caption = "Center";
             this.btnCenter.Id = 18;
             this.btnCenter.LargeImageIndex = 13;
+            this.btnCenter.LargeWidth = 60;
             this.btnCenter.Name = "btnCenter";
             this.btnCenter.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCenter_ItemClick);
             // 
             // btnAddLabel
             // 
-            this.btnAddLabel.Caption = "Add New Label";
+            this.btnAddLabel.Caption = "New Label";
             this.btnAddLabel.Description = "Adds a new label on current location.";
             this.btnAddLabel.Id = 19;
             this.btnAddLabel.LargeImageIndex = 19;
+            this.btnAddLabel.LargeWidth = 60;
             this.btnAddLabel.Name = "btnAddLabel";
             this.btnAddLabel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddLabel_ItemClick);
             // 
             // btnAddMark
             // 
-            this.btnAddMark.Caption = "Add New Mark";
+            this.btnAddMark.Caption = "New Mark";
             this.btnAddMark.Description = "Adds a new mark on current location.";
             this.btnAddMark.Id = 20;
             this.btnAddMark.LargeImageIndex = 17;
+            this.btnAddMark.LargeWidth = 60;
             this.btnAddMark.Name = "btnAddMark";
             this.btnAddMark.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddMark_ItemClick);
             // 
@@ -392,6 +417,15 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.btnAddMarkMenu.Name = "btnAddMarkMenu";
             this.btnAddMarkMenu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddMarkMenu_ItemClick);
             // 
+            // btnGoTo
+            // 
+            this.btnGoTo.Caption = "Go To";
+            this.btnGoTo.Id = 28;
+            this.btnGoTo.LargeImageIndex = 8;
+            this.btnGoTo.LargeWidth = 60;
+            this.btnGoTo.Name = "btnGoTo";
+            this.btnGoTo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGoTo_ItemClick);
+            // 
             // imgLarge
             // 
             this.imgLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -404,8 +438,8 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.ribbonPageGroup4,
             this.ribbonPageGroup5,
             this.ribbonPageGroup2,
-            this.ribbonPageGroup3});
-            this.rpOptions.KeyTip = "";
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup6});
             this.rpOptions.Name = "rpOptions";
             this.rpOptions.Text = "Options";
             // 
@@ -413,14 +447,12 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnChangePath);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnRebuild, true);
-            this.ribbonPageGroup1.KeyTip = "";
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Directory";
             // 
             // ribbonPageGroup4
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.btnCenter);
-            this.ribbonPageGroup4.KeyTip = "";
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Map";
             // 
@@ -428,7 +460,6 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             // 
             this.ribbonPageGroup5.ItemLinks.Add(this.btnAddMark);
             this.ribbonPageGroup5.ItemLinks.Add(this.btnAddLabel, true);
-            this.ribbonPageGroup5.KeyTip = "";
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "Graphics";
             // 
@@ -436,7 +467,6 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.btnUp);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnDown, true);
-            this.ribbonPageGroup2.KeyTip = "";
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Floor";
             // 
@@ -444,9 +474,14 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.btnZoomM);
             this.ribbonPageGroup3.ItemLinks.Add(this.btnZoomN, true);
-            this.ribbonPageGroup3.KeyTip = "";
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Zoom";
+            // 
+            // ribbonPageGroup6
+            // 
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnGoTo);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            this.ribbonPageGroup6.Text = "Move";
             // 
             // repositoryItemProgressBar1
             // 
@@ -513,11 +548,11 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             // 
             this.trackBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trackBarControl1.EditValue = 7;
-            this.trackBarControl1.Location = new System.Drawing.Point(2, 2);
+            this.trackBarControl1.Location = new System.Drawing.Point(9, 4);
             this.trackBarControl1.Name = "trackBarControl1";
             this.trackBarControl1.Properties.Maximum = 14;
             this.trackBarControl1.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBarControl1.Size = new System.Drawing.Size(41, 400);
+            this.trackBarControl1.Size = new System.Drawing.Size(27, 393);
             this.trackBarControl1.TabIndex = 0;
             this.trackBarControl1.Value = 7;
             this.trackBarControl1.EditValueChanged += new System.EventHandler(this.trackBarControl1_EditValueChanged);
@@ -537,9 +572,9 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.lblCurrentFloor.LineLocation = DevExpress.XtraEditors.LineLocation.Top;
             this.lblCurrentFloor.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Horizontal;
             this.lblCurrentFloor.LineVisible = true;
-            this.lblCurrentFloor.Location = new System.Drawing.Point(2, 402);
+            this.lblCurrentFloor.Location = new System.Drawing.Point(9, 397);
             this.lblCurrentFloor.Name = "lblCurrentFloor";
-            this.lblCurrentFloor.Size = new System.Drawing.Size(41, 57);
+            this.lblCurrentFloor.Size = new System.Drawing.Size(27, 57);
             this.lblCurrentFloor.TabIndex = 0;
             this.lblCurrentFloor.Text = "7";
             // 
@@ -557,7 +592,7 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(3, 3);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(203, 126);
+            this.groupControl2.Size = new System.Drawing.Size(206, 126);
             this.groupControl2.TabIndex = 0;
             this.groupControl2.Text = "No maps found";
             // 
@@ -567,18 +602,18 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.layoutControl1.Controls.Add(this.btnDir);
             this.layoutControl1.Controls.Add(this.pictureEdit1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(2, 20);
+            this.layoutControl1.Location = new System.Drawing.Point(2, 22);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(199, 104);
+            this.layoutControl1.Size = new System.Drawing.Size(202, 102);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(106, 64);
+            this.btnClose.Location = new System.Drawing.Point(103, 52);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(87, 34);
+            this.btnClose.Size = new System.Drawing.Size(87, 38);
             this.btnClose.StyleController = this.layoutControl1;
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "Close";
@@ -586,9 +621,9 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             // 
             // btnDir
             // 
-            this.btnDir.Location = new System.Drawing.Point(7, 64);
+            this.btnDir.Location = new System.Drawing.Point(12, 52);
             this.btnDir.Name = "btnDir";
-            this.btnDir.Size = new System.Drawing.Size(88, 34);
+            this.btnDir.Size = new System.Drawing.Size(87, 38);
             this.btnDir.StyleController = this.layoutControl1;
             this.btnDir.TabIndex = 5;
             this.btnDir.Text = "Find";
@@ -597,12 +632,12 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             // pictureEdit1
             // 
             this.pictureEdit1.EditValue = global::KTibiaX.MapViewer.Properties.Resources.close_32;
-            this.pictureEdit1.Location = new System.Drawing.Point(7, 7);
+            this.pictureEdit1.Location = new System.Drawing.Point(12, 12);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Size = new System.Drawing.Size(49, 46);
+            this.pictureEdit1.Size = new System.Drawing.Size(51, 36);
             this.pictureEdit1.StyleController = this.layoutControl1;
             this.pictureEdit1.TabIndex = 4;
             // 
@@ -616,8 +651,7 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.emptySpaceItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(199, 104);
-            this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(202, 102);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -627,9 +661,8 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(60, 57);
+            this.layoutControlItem1.Size = new System.Drawing.Size(55, 40);
             this.layoutControlItem1.Text = "layoutControlItem1";
-            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextToControlDistance = 0;
             this.layoutControlItem1.TextVisible = false;
@@ -638,13 +671,12 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             // 
             this.layoutControlItem2.Control = this.btnDir;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 57);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 40);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(91, 33);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(99, 45);
+            this.layoutControlItem2.Size = new System.Drawing.Size(91, 42);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.Text = "layoutControlItem2";
-            this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextToControlDistance = 0;
             this.layoutControlItem2.TextVisible = false;
@@ -653,13 +685,12 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             // 
             this.layoutControlItem3.Control = this.btnClose;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(99, 57);
+            this.layoutControlItem3.Location = new System.Drawing.Point(91, 40);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(91, 33);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(98, 45);
+            this.layoutControlItem3.Size = new System.Drawing.Size(91, 42);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.Text = "layoutControlItem3";
-            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextToControlDistance = 0;
             this.layoutControlItem3.TextVisible = false;
@@ -674,11 +705,11 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.emptySpaceItem1.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.emptySpaceItem1.AppearanceItemCaption.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.emptySpaceItem1.CustomizationFormText = "Map files not found in selected directory!";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(60, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(55, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(137, 57);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(127, 40);
             this.emptySpaceItem1.Text = "No map file was found in selected directory!";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 20);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             this.emptySpaceItem1.TextVisible = true;
             // 
             // pnNoFiles
@@ -687,12 +718,12 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.pnNoFiles.Appearance.Options.UseBackColor = true;
             this.pnNoFiles.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnNoFiles.Controls.Add(this.groupControl2);
-            this.pnNoFiles.Location = new System.Drawing.Point(639, 153);
+            this.pnNoFiles.Location = new System.Drawing.Point(636, 153);
             this.pnNoFiles.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.pnNoFiles.LookAndFeel.UseDefaultLookAndFeel = false;
             this.pnNoFiles.Name = "pnNoFiles";
             this.pnNoFiles.Padding = new System.Windows.Forms.Padding(3);
-            this.pnNoFiles.Size = new System.Drawing.Size(209, 132);
+            this.pnNoFiles.Size = new System.Drawing.Size(212, 132);
             this.pnNoFiles.TabIndex = 5;
             // 
             // pnLoading
@@ -706,7 +737,7 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.pnLoading.LookAndFeel.UseDefaultLookAndFeel = false;
             this.pnLoading.Name = "pnLoading";
             this.pnLoading.Padding = new System.Windows.Forms.Padding(3);
-            this.pnLoading.Size = new System.Drawing.Size(325, 88);
+            this.pnLoading.Size = new System.Drawing.Size(325, 108);
             this.pnLoading.TabIndex = 8;
             // 
             // groupControl3
@@ -715,7 +746,7 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl3.Location = new System.Drawing.Point(3, 3);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(319, 82);
+            this.groupControl3.Size = new System.Drawing.Size(319, 102);
             this.groupControl3.TabIndex = 0;
             this.groupControl3.Text = "Loading Map Files";
             // 
@@ -724,32 +755,32 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.layoutControl2.Controls.Add(this.pictureEdit2);
             this.layoutControl2.Controls.Add(this.progressLoading);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(2, 20);
+            this.layoutControl2.Location = new System.Drawing.Point(2, 22);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(315, 60);
+            this.layoutControl2.Size = new System.Drawing.Size(315, 78);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
             // pictureEdit2
             // 
             this.pictureEdit2.EditValue = global::KTibiaX.MapViewer.Properties.Resources.pile;
-            this.pictureEdit2.Location = new System.Drawing.Point(7, 7);
+            this.pictureEdit2.Location = new System.Drawing.Point(12, 12);
             this.pictureEdit2.Name = "pictureEdit2";
             this.pictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pictureEdit2.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit2.Size = new System.Drawing.Size(37, 47);
+            this.pictureEdit2.Size = new System.Drawing.Size(42, 54);
             this.pictureEdit2.StyleController = this.layoutControl2;
             this.pictureEdit2.TabIndex = 5;
             // 
             // progressLoading
             // 
             this.progressLoading.EditValue = 100;
-            this.progressLoading.Location = new System.Drawing.Point(55, 32);
+            this.progressLoading.Location = new System.Drawing.Point(58, 44);
             this.progressLoading.Name = "progressLoading";
             this.progressLoading.Properties.ShowTitle = true;
-            this.progressLoading.Size = new System.Drawing.Size(254, 22);
+            this.progressLoading.Size = new System.Drawing.Size(245, 22);
             this.progressLoading.StyleController = this.layoutControl2;
             this.progressLoading.TabIndex = 4;
             // 
@@ -761,8 +792,7 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.layoutControlItem5});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(315, 60);
-            this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(315, 78);
             this.layoutControlGroup2.Text = "layoutControlGroup2";
             this.layoutControlGroup2.TextVisible = false;
             // 
@@ -774,16 +804,17 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.lblMapFile.AppearanceItemCaption.Options.UseForeColor = true;
             this.lblMapFile.Control = this.progressLoading;
             this.lblMapFile.CustomizationFormText = " Current File: ...";
-            this.lblMapFile.Location = new System.Drawing.Point(48, 0);
+            this.lblMapFile.Location = new System.Drawing.Point(46, 0);
             this.lblMapFile.MaxSize = new System.Drawing.Size(265, 86);
             this.lblMapFile.MinSize = new System.Drawing.Size(89, 50);
             this.lblMapFile.Name = "lblMapFile";
-            this.lblMapFile.Size = new System.Drawing.Size(265, 58);
+            this.lblMapFile.Size = new System.Drawing.Size(249, 58);
             this.lblMapFile.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lblMapFile.Text = " Current File: ...";
             this.lblMapFile.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.lblMapFile.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lblMapFile.TextSize = new System.Drawing.Size(78, 20);
+            this.lblMapFile.TextSize = new System.Drawing.Size(78, 27);
+            this.lblMapFile.TextToControlDistance = 5;
             // 
             // layoutControlItem5
             // 
@@ -791,9 +822,8 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(48, 58);
+            this.layoutControlItem5.Size = new System.Drawing.Size(46, 58);
             this.layoutControlItem5.Text = "layoutControlItem5";
-            this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextToControlDistance = 0;
             this.layoutControlItem5.TextVisible = false;
@@ -811,7 +841,6 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.mapContextMenu.Name = "mapContextMenu";
             this.mapContextMenu.Ribbon = this.ribbon;
             this.mapContextMenu.RightPaneControlContainer = null;
-            this.mapContextMenu.RightPaneWidth = 240;
             // 
             // labelContextMenu
             // 
@@ -822,7 +851,6 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.labelContextMenu.Name = "labelContextMenu";
             this.labelContextMenu.Ribbon = this.ribbon;
             this.labelContextMenu.RightPaneControlContainer = null;
-            this.labelContextMenu.RightPaneWidth = 240;
             // 
             // markContextMenu
             // 
@@ -833,7 +861,104 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.markContextMenu.Name = "markContextMenu";
             this.markContextMenu.Ribbon = this.ribbon;
             this.markContextMenu.RightPaneControlContainer = null;
-            this.markContextMenu.RightPaneWidth = 240;
+            // 
+            // dockManager1
+            // 
+            this.dockManager1.Form = this;
+            this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
+            this.dockPanel1});
+            this.dockManager1.TopZIndexControls.AddRange(new string[] {
+            "DevExpress.XtraBars.BarDockControl",
+            "DevExpress.XtraBars.StandaloneBarDockControl",
+            "System.Windows.Forms.StatusBar",
+            "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
+            "DevExpress.XtraBars.Ribbon.RibbonControl"});
+            // 
+            // dockPanel1
+            // 
+            this.dockPanel1.Controls.Add(this.dockPanel1_Container);
+            this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Float;
+            this.dockPanel1.FloatLocation = new System.Drawing.Point(766, 596);
+            this.dockPanel1.FloatSize = new System.Drawing.Size(127, 114);
+            this.dockPanel1.ID = new System.Guid("52cc260e-0b4e-45ff-ac95-81f0b5beba9e");
+            this.dockPanel1.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel1.Name = "dockPanel1";
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 200);
+            this.dockPanel1.Size = new System.Drawing.Size(127, 114);
+            this.dockPanel1.Text = "Search Location";
+            // 
+            // dockPanel1_Container
+            // 
+            this.dockPanel1_Container.Controls.Add(this.txtGoY);
+            this.dockPanel1_Container.Controls.Add(this.btnGo);
+            this.dockPanel1_Container.Controls.Add(this.txtGoX);
+            this.dockPanel1_Container.Controls.Add(this.labelControl1);
+            this.dockPanel1_Container.Controls.Add(this.labelControl2);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(2, 28);
+            this.dockPanel1_Container.Name = "dockPanel1_Container";
+            this.dockPanel1_Container.Size = new System.Drawing.Size(123, 84);
+            this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // txtGoY
+            // 
+            this.txtGoY.EditValue = "0";
+            this.txtGoY.Location = new System.Drawing.Point(19, 26);
+            this.txtGoY.MenuManager = this.ribbon;
+            this.txtGoY.Name = "txtGoY";
+            this.txtGoY.Properties.Mask.EditMask = "f0";
+            this.txtGoY.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtGoY.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtGoY.Size = new System.Drawing.Size(100, 20);
+            this.txtGoY.TabIndex = 5;
+            // 
+            // btnGo
+            // 
+            this.btnGo.ImageIndex = 13;
+            this.btnGo.ImageList = this.imgLarge;
+            this.btnGo.Location = new System.Drawing.Point(3, 49);
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(116, 29);
+            this.btnGo.TabIndex = 4;
+            this.btnGo.Text = "Go to location";
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            // 
+            // txtGoX
+            // 
+            this.txtGoX.EditValue = "0";
+            this.txtGoX.Location = new System.Drawing.Point(19, 4);
+            this.txtGoX.MenuManager = this.ribbon;
+            this.txtGoX.Name = "txtGoX";
+            this.txtGoX.Properties.Mask.EditMask = "f0";
+            this.txtGoX.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtGoX.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtGoX.Size = new System.Drawing.Size(100, 20);
+            this.txtGoX.TabIndex = 4;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.labelControl1.Appearance.Options.UseBackColor = true;
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.Location = new System.Drawing.Point(3, 4);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(14, 18);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = " X";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.labelControl2.Appearance.Options.UseBackColor = true;
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl2.Location = new System.Drawing.Point(3, 26);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(14, 18);
+            this.labelControl2.TabIndex = 2;
+            this.labelControl2.Text = " Y";
             // 
             // frm_MapViewer
             // 
@@ -843,13 +968,15 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             this.Controls.Add(this.pnLoading);
             this.Controls.Add(this.pnNoFiles);
             this.Controls.Add(this.clientPanel);
-            this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
+            this.Controls.Add(this.ribbonStatusBar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_MapViewer";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "frm_MapViewer";
+            this.Text = "KTibiaX Map Viewer";
             this.Load += new System.EventHandler(this.frm_MapViewer_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgLarge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
@@ -885,6 +1012,11 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             ((System.ComponentModel.ISupportInitialize)(this.mapContextMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelContextMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.markContextMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
+            this.dockPanel1.ResumeLayout(false);
+            this.dockPanel1_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtGoY.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGoX.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -956,5 +1088,15 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
         private DevExpress.XtraBars.BarButtonItem btnAddLabelMenu;
         private DevExpress.XtraBars.BarButtonItem btnAddMarkMenu;
         private KTibiaX.MapViewer.Controls.MapViewer mapViewer1;
+        private DevExpress.XtraBars.BarButtonItem btnGoTo;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraBars.Docking.DockManager dockManager1;
+        private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
+        private DevExpress.XtraEditors.SimpleButton btnGo;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.TextEdit txtGoY;
+        private DevExpress.XtraEditors.TextEdit txtGoX;
     }
 }

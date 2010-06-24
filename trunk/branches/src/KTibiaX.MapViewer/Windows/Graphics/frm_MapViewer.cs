@@ -18,6 +18,7 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
             InitializeComponent();
             pnNoFiles.Visible = false;
             pnLoading.Visible = false;
+            dockPanel1.Hide();
             mapViewer1.Cursor = KTibiaX.MapViewer.Controls.Cursors.Normal;
         }
 
@@ -367,13 +368,19 @@ namespace KTibiaX.MapViewer.Windows.Graphics {
         private void frmLabel_LabelChanged(object sender, EventArgs e) {
             mapViewer1.Invalidate();
         }
+        private void btnGoTo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            dockPanel1.Show();
+        }
         #endregion
 
-
-
-
-
-
+        /// <summary>
+        /// Center the map in defined location.
+        /// </summary>
+        private void btnGo_Click(object sender, EventArgs e) {
+            if (txtGoX.Text != "0" && txtGoY.Text != "0") {
+                mapViewer1.SetMapCenter(new Location(Convert.ToInt32(txtGoX.Text), Convert.ToInt32(txtGoY.Text), mapViewer1.CurrentFloor));
+            }
+        }
 
 
     }
